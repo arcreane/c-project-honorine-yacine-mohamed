@@ -1,4 +1,5 @@
 #include "Antagoniste.h";
+#include "Hero.h"
 
 int Antagoniste::getRecompense() const
 {
@@ -10,10 +11,10 @@ void Antagoniste::setRecompense(int r)
 	recompense = r;
 }
 
-void Antagoniste::oneShot(Personnage hero)
-{
-	// ecrire la fonction oneshot
-}
+//void Antagoniste::oneShot(Hero h)
+//{
+//	// ecrire la fonction oneshot
+//}
 
 bool Antagoniste::getActive() const {
 	return active;
@@ -52,4 +53,8 @@ void Antagoniste::setActive(bool r)
 void Antagoniste::setSide(int r)
 {
 	facingLeft = r;
+}
+
+void Antagoniste::oneShot(Hero hero)
+{
 }

@@ -8,7 +8,10 @@
 using namespace std;
 
 void onKeyDown(Texture2D* myHeroRun, Texture2D* myHeroAttack, Vector2* position, Rectangle* frameRec, Rectangle* frameRecAttack);
-Hero player = Hero("Name", 0, 0, 0, 0, 100);
+
+Hero player = Hero("Name", 0, 0, 0, 100);  // run=false, attack = false et idle= true 
+
+
 Antagoniste man[NOMBRE_ANTAGONIST] = {
     Antagoniste("ANTAGONISTE 1", 1, 1),
     Antagoniste("ANTAGONISTE 2", 1, 1),
@@ -24,10 +27,6 @@ const int screenWidth = 1270;
 const int screenHeight = 800;
 int playerPosX;
 int playerPosY;
-bool run = false;
-bool attack = false;
-bool idle = true;
-int facingLeft = 1;
 int enemyLeft = 1;
 int manFrame = 0;
 int enemySpawn[] = { 0, 1250 };
@@ -36,11 +35,15 @@ int enemySpawn[] = { 0, 1250 };
 int main(void)
 {
 
+    // Au lancement je lui donne 10 pieces
+    player.initCoinsList();
+        
     player.setPosY(600);
+
     int playerPosX = player.getPosX();
     int playerPosY = player.getPosY();
 
-    InitWindow(screenWidth, screenHeight, "raylib [textures] example - image loading");
+    InitWindow(screenWidth, screenHeight, "JEU");
 
     Image image = LoadImage("resources/bg.png");
     Image btn = LoadImage("resources/playbutton.png");
@@ -160,12 +163,12 @@ int main(void)
                 DrawTexture(healthIcon, 40 + (i * 35), 50, WHITE);
             }
             DrawTexture(coinIcon, 40, 100, WHITE);
-            DrawText(std::to_string(player.getMoney()).c_str(), 85, 105, 35, YELLOW);
-            if (run == true)
+            DrawText(std::to_string(player.getnbCoins()).c_str(), 85, 105, 35, YELLOW);
+            if (player.getrun() == true)
                 DrawTextureRec(myHeroRun, frameRec, position, WHITE);
-            if (idle == true)
+            if (player.getidle() == true)
                 DrawTextureRec(myHeroIdle, frameRec, position, WHITE);
-            else if (attack == true)
+            else if (player.getattack() == true)
                 DrawTextureRec(myHeroAttack, frameRecAttack, position, WHITE);
         }
         EndDrawing();
@@ -187,45 +190,30 @@ void onKeyDown(Texture2D* myHeroRun, Texture2D* myHeroAttack, Vector2* position,
 {
     if (IsKeyDown(KEY_RIGHT)) {
         if (IsKeyDown(KEY_SPACE)) {
-            attack = true;
-            run = false;
-            idle = false;
+            player.attaque();
         }
         else if (framesCounter % 3 == 0) {
-            run = true;
-            idle = false;
-            attack = false;
-            facingLeft = 1;
+            player.runright();
             if (position->x <= 1200)
                 position->x += 7;
             currentFrame++;
-
             if (currentFrame > 10)
                 currentFrame = 0;
-
             frameRec->x = (float)currentFrame * (float)myHeroRun->width / 10;
-            frameRec->width = abs((float)myHeroRun->width / 10) * facingLeft;
+            frameRec->width = abs((float)myHeroRun->width / 10) * player.getFacingLeft();
         }
     }
 
     if (IsKeyReleased(KEY_RIGHT) || IsKeyReleased(KEY_LEFT) || IsKeyReleased(KEY_SPACE)) {
-        run = false;
-        attack = false;
-        idle = true;
+        player.notmove();
     }
 
     if (IsKeyDown(KEY_LEFT)) {
         if (IsKeyDown(KEY_SPACE)) {
-            attack = true;
-            run = false;
-            idle = false;
+            player.attaque();
         }
         else if (framesCounter % 3 == 0) {
-            facingLeft = -1;
-            run = true;
-            idle = false;
-            attack = false;
-
+            player.runleft();
             if (position->x >= -60)
                 position->x -= 7;
             currentFrame++;
@@ -233,28 +221,25 @@ void onKeyDown(Texture2D* myHeroRun, Texture2D* myHeroAttack, Vector2* position,
             if (currentFrame > 10)
                 currentFrame = 0;
             frameRec->x = (float)currentFrame * (float)myHeroRun->width / 10;
-            frameRec->width = abs((float)myHeroRun->width / 10) * facingLeft;
+            frameRec->width = abs((float)myHeroRun->width / 10) * player.getFacingLeft();
         }
     }
 
     if (IsKeyDown(KEY_SPACE)) {
         if (framesCounter % 3 == 0) {
-            attack = true;
-            idle = false;
-            run = false;
+            player.attaque();
 
             currentFrame++;
 
             if (currentFrame > 10)
                 currentFrame = 0;
             frameRecAttack->x = (float)currentFrame * (float)myHeroAttack->width / 6;
-            frameRecAttack->width = abs((float)myHeroAttack->width / 6) * facingLeft;
+            frameRecAttack->width = abs((float)myHeroAttack->width / 6) * player.getFacingLeft();
         }
     }
 
     if (IsKeyReleased(KEY_SPACE)) {
-        attack = false;
-        idle = true;
-        run = false;
+        player.notmove();
     }
 }
+

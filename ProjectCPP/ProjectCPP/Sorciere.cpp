@@ -1,6 +1,6 @@
 #include "Sorciere.h";
 
-void Sorciere::givePotion(Potion p)
+void Sorciere::voler()
 {
 	// a coder
 }

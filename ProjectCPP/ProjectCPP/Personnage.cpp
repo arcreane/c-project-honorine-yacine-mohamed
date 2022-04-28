@@ -8,6 +8,11 @@ Personnage::Personnage() :Personnage("sans nom", 10)
 Personnage::Personnage(string nom, int vie)
 	: nom{ nom }
 	, vie{ vie }
+	, attack{ false }
+	, run{ false }
+	, idle{ true }
+	, position_x {0}  //position
+	, position_y {0}
 {
 }
 
@@ -56,14 +61,44 @@ void Personnage::setPosY(int y)
 	position_y = y;
 }
 
-void Personnage::attaque(Personnage antagoniste)
+int Personnage::getFacingLeft() const
 {
-	// ecrire le code d'attaque
+	return facingLeft;
 }
 
-void Personnage::attaque()
+void Personnage::setFacingLeft(int fc)
 {
-	//ecrire le code pour attaquer.
+	facingLeft = fc;
+}
+
+bool Personnage::getrun() const
+{
+	return run;
+}
+
+bool Personnage::getattack() const
+{
+	return attack;
+}
+
+bool Personnage::getidle() const
+{
+	return idle;
+}
+
+void Personnage::setrun(bool b)
+{
+	run = b;
+}
+
+void Personnage::setattack(bool b)
+{
+	attack = b;
+}
+
+void Personnage::setidle(bool b)
+{
+	idle = b;
 }
 
 std::ostream& operator<<(std::ostream& out, const Personnage& p)

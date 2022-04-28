@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Personnage.h";
+#include "Hero.h";
 #include "raylib.h";
 
 class Antagoniste : public Personnage {
@@ -30,7 +31,16 @@ public:
 	void setPos(Vector2 v);
 	void setSide(int s);
 
+
+	void runleft() override {
+		cout << "JE SUIS UN ME ET JE MARCHE VERS LA GAUCHE" << std::endl;
+	}
+	void runright() override {
+		cout << "JE SUIS UN ME ET JE MARCHE VERS LA DROITE" << std::endl;
+	};
+
+
 	//methodes
-	void oneShot(Personnage hero);
+	void oneShot(Hero hero);
 
 };
