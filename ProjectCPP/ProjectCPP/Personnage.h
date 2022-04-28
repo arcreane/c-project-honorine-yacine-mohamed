@@ -14,6 +14,8 @@ class Personnage
 private:
 	string nom; //name
 	int vie;    //life
+	int position_x;  //position
+	int position_y;
 
 
 public:
@@ -29,6 +31,11 @@ public:
 	int getVie() const;
 	void setNom(string n);
 	void setVie(int v);
+
+	int getPosX() const;
+	int getPosY() const;
+	void setPosX(int x);
+	void setPosY(int y);
 
 	//Autres methodes
 	void attaque(Personnage antagoniste);

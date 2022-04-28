@@ -25,6 +25,15 @@ int Personnage::getVie()const
 	return (vie);
 }
 
+int Personnage::getPosX() const
+{
+	return position_x;
+}
+
+int Personnage::getPosY() const
+{
+	return position_y;
+}
 
 void Personnage::setNom(string n)
 {
@@ -34,6 +43,17 @@ void Personnage::setNom(string n)
 void Personnage::setVie(int v)
 {
 	vie = v;
+}
+
+
+void Personnage::setPosX(int x)
+{
+	position_x = x;
+}
+
+void Personnage::setPosY(int y)
+{
+	position_y = y;
 }
 
 void Personnage::attaque(Personnage antagoniste)

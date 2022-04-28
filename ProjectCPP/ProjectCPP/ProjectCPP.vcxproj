@@ -151,7 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Antaginiste.cpp" />
+    <ClCompile Include="Antagoniste.cpp" />
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />

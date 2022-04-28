@@ -20,15 +20,6 @@ int Hero::getStrength() const
 	return strength;
 }
 
-int Hero::getPosX() const
-{
-	return position_x;
-}
-
-int Hero::getPosY() const
-{
-	return position_y;
-}
 
 void Hero::setSpeed(int s)
 {
@@ -48,16 +39,6 @@ void Hero::setMoney(int m)
 void Hero::setStrength(int s)
 {
 	strength = s;
-}
-
-void Hero::setPosX(int x)
-{
-	position_x = x;
-}
-
-void Hero::setPosY(int y)
-{
-	position_y = y;
 }
 
 
