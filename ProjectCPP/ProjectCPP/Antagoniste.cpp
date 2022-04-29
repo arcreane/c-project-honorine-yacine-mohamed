@@ -11,6 +11,16 @@ void Antagoniste::setRecompense(int r)
 	recompense = r;
 }
 
+int Antagoniste::getDamage() const
+{
+	return damage;
+}
+
+void Antagoniste::setDamage(int r)
+{
+	damage = r;
+}
+
 //void Antagoniste::oneShot(Hero h)
 //{
 //	// ecrire la fonction oneshot
@@ -20,9 +30,10 @@ bool Antagoniste::getActive() const {
 	return active;
 }
 
-Rectangle Antagoniste::getRect() const
+
+Rectangle Antagoniste::getDamageRect() const
 {
-	return rec;
+	return damageRec;
 }
 
 Vector2 Antagoniste::getPos() const
@@ -30,14 +41,9 @@ Vector2 Antagoniste::getPos() const
 	return pos;
 }
 
-int Antagoniste::getSide() const
+void Antagoniste::setDamageRect(Rectangle r)
 {
-	return facingLeft;
-}
-
-void Antagoniste::setRect(Rectangle r)
-{
-	rec = r;
+	damageRec = r;
 }
 
 void Antagoniste::setPos(Vector2 p)
@@ -48,11 +54,6 @@ void Antagoniste::setPos(Vector2 p)
 void Antagoniste::setActive(bool r)
 {
 	active = r;
-}
-
-void Antagoniste::setSide(int r)
-{
-	facingLeft = r;
 }
 
 void Antagoniste::oneShot(Hero hero)

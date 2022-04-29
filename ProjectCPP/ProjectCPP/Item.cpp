@@ -8,6 +8,12 @@ Item::Item(string nom)
 {
 }
 
+Item::Item(string nom, Rectangle r)
+{
+	nom = nom;
+	rect = r;
+}
+
 string Item::getNom()const
 {
 	return (nom);
@@ -17,4 +23,14 @@ string Item::getNom()const
 void Item::setNom(string n)
 {
 	nom = n;
+}
+
+Rectangle Item::getRectangle() const
+{
+	return rect;
+}
+
+void Item::setRectangle(Rectangle r)
+{
+	rect = r;
 }

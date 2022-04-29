@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Hero.h"
 #include "Antagoniste.h"
+#include "Piece.h"
 
 #define NOMBRE_ANTAGONIST 4
 
@@ -9,10 +10,10 @@ using namespace std;
 
 void onKeyDown(Texture2D* myHeroRun, Texture2D* myHeroAttack, Vector2* position, Rectangle* frameRec, Rectangle* frameRecAttack);
 
-Hero player = Hero("Name", 0, 0, 0, 100);  // run=false, attack = false et idle= true 
+Hero player = Hero("Name", 100, 0, 0, 0);  // run=false, attack = false et idle= true 
 
 
-Antagoniste man[NOMBRE_ANTAGONIST] = {
+Antagoniste tabantagoniste[NOMBRE_ANTAGONIST] = {
     Antagoniste("ANTAGONISTE 1", 1, 1),
     Antagoniste("ANTAGONISTE 2", 1, 1),
     Antagoniste("ANTAGONISTE 3", 1, 1),
@@ -29,15 +30,16 @@ int playerPosX;
 int playerPosY;
 int enemyLeft = 1;
 int manFrame = 0;
-int enemySpawn[] = { 0, 1250 };
+int enemySpawn[][2] = { {-100, 0},{screenWidth - 50,screenWidth + 50} };
 
+std::vector< Texture2D > listModelantagonistes;
 
 int main(void)
 {
 
-    // Au lancement je lui donne 10 pieces
+    // Au lancement je lui donne 10 pieces au joueur
     player.initCoinsList();
-        
+
     player.setPosY(600);
 
     int playerPosX = player.getPosX();
@@ -47,21 +49,36 @@ int main(void)
 
     Image image = LoadImage("resources/bg.png");
     Image btn = LoadImage("resources/playbutton.png");
-    Image hero_running = LoadImage("resources/hero_run.png");
-    Image hero_attack = LoadImage("resources/hero_attack.png");
-    Image hero_idle = LoadImage("resources/hero_idle.png");
     Image health = LoadImage("resources/health.png");
     Image coin = LoadImage("resources/coin.png");
+
+    //ANTAGONISTES 
     Image man_run = LoadImage("resources/Man_walk.png");
+    Image woman_run = LoadImage("resources/Woman_walk.png");
+
+    // PIECE DANS L'ENVIRONNEMENT
+    Image coin_environnement = LoadImage("resources/coin1.png");
 
     Texture2D texture = LoadTextureFromImage(image);
     Texture2D button = LoadTextureFromImage(btn);
-    Texture2D myHeroRun = LoadTextureFromImage(hero_running);
-    Texture2D myHeroAttack = LoadTextureFromImage(hero_attack);
-    Texture2D myHeroIdle = LoadTextureFromImage(hero_idle);
+
+
+    Texture2D myHeroRun = player.getTexture2DRun();  
+    Texture2D myHeroAttack = player.getTexture2DAttack();
+    Texture2D myHeroIdle = player.getTexture2DIdle();
+
     Texture2D healthIcon = LoadTextureFromImage(health);
+
     Texture2D coinIcon = LoadTextureFromImage(coin);
+
     Texture2D manRun = LoadTextureFromImage(man_run);
+    Texture2D womanRun = LoadTextureFromImage(woman_run);
+
+    Texture2D coinEnvironnement = LoadTextureFromImage(coin_environnement);
+
+    listModelantagonistes.push_back(manRun);
+    listModelantagonistes.push_back(womanRun);
+
 
     Rectangle btnBounds = { (screenWidth / 2) - 75, (screenHeight / 2) - 75, 150, 150 };
     Vector2 mousePoint = { 0.0f, 0.0f };
@@ -77,26 +94,29 @@ int main(void)
     healthIcon.height = 40;
     coinIcon.width = 40;
     coinIcon.height = 40;
+
     int btnState = 0;
     bool btnAction = false;
     bool gameStart = false;
 
     UnloadImage(image);
     UnloadImage(btn);
-    UnloadImage(hero_running);
-    UnloadImage(hero_attack);
-    UnloadImage(hero_idle);
     UnloadImage(health);
     UnloadImage(coin);
     UnloadImage(man_run);
+    UnloadImage(woman_run);
+    UnloadImage(coin_environnement);
 
     SetTargetFPS(60);
 
     for (int i = 0; i < NOMBRE_ANTAGONIST; i++) {
-        man[i].setActive(true);
-        man[i].setRect({ 0.0f, 0.0f, (float)manRun.width / 6, (float)manRun.height });
-        man[i].setPos({2, position.y + 32 });  //mettre une fonction random pour position les ennemis.
-        man[i].setSide(1);
+        tabantagoniste[i].setActive(true);
+        tabantagoniste[i].setRect({ 0.0f, 0.0f, (float)manRun.width / 6, (float)manRun.height });
+        tabantagoniste[i].setPos({(float)GetRandomValue(enemySpawn[i % 2][0], enemySpawn[i % 2][1]), position.y + 32 });
+        tabantagoniste[i].setSide(1);
+        tabantagoniste[i].setModel(listModelantagonistes[rand() % listModelantagonistes.size()]);
+        tabantagoniste[i].setDamage(5);
+        tabantagoniste[i].setRecompense(1);
     }
 
     while (!WindowShouldClose()) {
@@ -104,21 +124,47 @@ int main(void)
         mousePoint = GetMousePosition();
         btnAction = false;
 
-        onKeyDown(&myHeroRun, &myHeroAttack, &position, &frameRec, &frameRecAttack);
-
-        for (int i = 0; i < NOMBRE_ANTAGONIST; i++) {
-            if (man[i].getActive() && gameStart) {
-                Vector2 pos = man[i].getPos();
-                if (position.x > pos.x) {
-                    man[i].setPos({ pos.x + 1, pos.y });
-                    man[i].setSide(1);
-                }
-                if (position.x + 50 < pos.x) {
-                    man[i].setPos({ pos.x - 1, pos.y });
-                    man[i].setSide(-1);
+        if (gameStart == true) {
+            if (IsKeyDown(KEY_ENTER)) {
+                player.setVie(100);
+                player.setScore(0);
+                position = { 0.0f, (float)player.getPosY() };
+                for (int i = 0; i < NOMBRE_ANTAGONIST; i++) {
+                    tabantagoniste[i].setPos({ (float)GetRandomValue(enemySpawn[i % 2][0], enemySpawn[i % 2][1]), position.y + 32 });
+                    tabantagoniste[i].setSide(1);
                 }
             }
         }
+
+        if (player.getVie() > 0 && gameStart == true) {
+            onKeyDown(&myHeroRun, &myHeroAttack, &position, &frameRec, &frameRecAttack);
+
+            for (int i = 0; i < NOMBRE_ANTAGONIST; i++) {
+                if (tabantagoniste[i].getActive() && gameStart) {
+                    Vector2 pos = tabantagoniste[i].getPos();
+                    if (position.x > pos.x) {
+                        tabantagoniste[i].setPos({ pos.x + 1, pos.y });
+                        tabantagoniste[i].setSide(1);
+                    }
+                    if (position.x + 50 < pos.x) {
+                        tabantagoniste[i].setPos({ pos.x - 1, pos.y });
+                        tabantagoniste[i].setSide(-1);
+                    }
+                    if (CheckCollisionPointRec(pos, player.getRect())) {
+                        if (player.getattack()) {
+                            tabantagoniste[i].setPos({(float)GetRandomValue(enemySpawn[i % 2][0], enemySpawn[i % 2][1]), position.y + 32 });
+                            tabantagoniste[i].setModel(listModelantagonistes[rand() % listModelantagonistes.size()]);
+                            player.setScore(tabantagoniste[i].getRecompense() + player.getScore());
+                        }
+                        if (!player.getattack() && framesCounter % 30 == 0) {
+                            int health = player.getVie();
+                            player.setVie(health - tabantagoniste[i].getDamage());
+                        }
+                    }
+                }
+            }
+        }
+
 
         if (CheckCollisionPointRec(mousePoint, btnBounds)) {
             if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
@@ -144,32 +190,41 @@ int main(void)
 
         if (gameStart == false) {
             DrawTexture(button, (screenWidth / 2) - 75, (screenHeight / 2) - 75, WHITE);
-            DrawText("Play!", (screenWidth / 2) - 75, (screenHeight / 2) + 75, 70, WHITE);
+            DrawText("JOUER !", (screenWidth / 2) - 75, (screenHeight / 2) + 75, 45, WHITE);
         }
         else {
-
-            for (int i = 0; i < NOMBRE_ANTAGONIST; i++) {
-                if (man[i].getActive()) {
-                    DrawTextureRec(manRun, { manFrame * (float)manRun.width / 6, man[i].getRect().y, man[i].getRect().width * man[i].getSide(), man[i].getRect().height }, man[i].getPos(), WHITE);
-
-                    if (framesCounter % 10 == 0) {
-                        manFrame++;
-                        if (manFrame >= 6)
-                            manFrame = 0;
+            if (player.getVie() <= 0) {
+                DrawText(TextFormat("SCORE: %i", player.getScore()), 500, 320, 50, MAROON);   //ecrire dans le fichier
+                DrawText(TextFormat(" BEST-SCORE: %i", player.getScore()), 420, 400, 45, BLACK);  //recuperer depuis le fichier
+                DrawText("GAME OVER", 470, 230, 50, BLACK);
+                DrawText("APPUYER SUR ENTRER POUR REJOUER", 280, 500, 40, LIGHTGRAY);
+            }
+            else {
+                for (int i = 0; i < NOMBRE_ANTAGONIST; i++) {
+                    if (tabantagoniste[i].getActive()) {
+                        tabantagoniste[i].setDamageRect({ manFrame * (float)tabantagoniste[i].getModel().width / 6, tabantagoniste[i].getRect().y, tabantagoniste[i].getRect().width * tabantagoniste[i].getSide(), tabantagoniste[i].getRect().height });
+                        DrawTextureRec(tabantagoniste[i].getModel(), tabantagoniste[i].getDamageRect(), tabantagoniste[i].getPos(), WHITE);
+                        if (framesCounter % 10 == 0) {
+                            manFrame++;
+                            if (manFrame >= 6)
+                                manFrame = 0;
+                        }
                     }
                 }
+                for (int i = 1; i <= player.getVie() / 20; i++) {
+                    DrawTexture(healthIcon, 40 + ((i - 1) * 35), 50, WHITE);
+                }
+                DrawTexture(coinIcon, 40, 100, WHITE);
+                DrawText(std::to_string(player.getScore()).c_str(), 1120, 50, 30, WHITE);
+                DrawText(std::to_string(player.getnbCoins()).c_str(), 85, 105, 35, YELLOW);
+                if (player.getrun() == true)
+                    DrawTextureRec(myHeroRun, frameRec, position, WHITE);
+                if (player.getidle() == true)
+                    DrawTextureRec(myHeroIdle, frameRec, position, WHITE);
+                else if (player.getattack() == true)
+                    DrawTextureRec(myHeroAttack, frameRecAttack, position, WHITE);
+                player.setRect({ position.x,position.y,abs(frameRec.width) / 2,frameRec.height });
             }
-            for (int i = 0; i < player.getStrength() / 20; i++) {
-                DrawTexture(healthIcon, 40 + (i * 35), 50, WHITE);
-            }
-            DrawTexture(coinIcon, 40, 100, WHITE);
-            DrawText(std::to_string(player.getnbCoins()).c_str(), 85, 105, 35, YELLOW);
-            if (player.getrun() == true)
-                DrawTextureRec(myHeroRun, frameRec, position, WHITE);
-            if (player.getidle() == true)
-                DrawTextureRec(myHeroIdle, frameRec, position, WHITE);
-            else if (player.getattack() == true)
-                DrawTextureRec(myHeroAttack, frameRecAttack, position, WHITE);
         }
         EndDrawing();
     }
@@ -200,7 +255,7 @@ void onKeyDown(Texture2D* myHeroRun, Texture2D* myHeroAttack, Vector2* position,
             if (currentFrame > 10)
                 currentFrame = 0;
             frameRec->x = (float)currentFrame * (float)myHeroRun->width / 10;
-            frameRec->width = abs((float)myHeroRun->width / 10) * player.getFacingLeft();
+            frameRec->width = abs((float)myHeroRun->width / 10) * player.getSide();
         }
     }
 
@@ -221,7 +276,7 @@ void onKeyDown(Texture2D* myHeroRun, Texture2D* myHeroAttack, Vector2* position,
             if (currentFrame > 10)
                 currentFrame = 0;
             frameRec->x = (float)currentFrame * (float)myHeroRun->width / 10;
-            frameRec->width = abs((float)myHeroRun->width / 10) * player.getFacingLeft();
+            frameRec->width = abs((float)myHeroRun->width / 10) * player.getSide();
         }
     }
 
@@ -234,7 +289,7 @@ void onKeyDown(Texture2D* myHeroRun, Texture2D* myHeroAttack, Vector2* position,
             if (currentFrame > 10)
                 currentFrame = 0;
             frameRecAttack->x = (float)currentFrame * (float)myHeroAttack->width / 6;
-            frameRecAttack->width = abs((float)myHeroAttack->width / 6) * player.getFacingLeft();
+            frameRecAttack->width = abs((float)myHeroAttack->width / 6) * player.getSide();
         }
     }
 

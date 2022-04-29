@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <string>
+#include <raylib.h>
 using namespace std;
 
 
@@ -16,6 +17,13 @@ private:
 	int vie;    //life
 	int position_x;  //position
 	int position_y;
+	Texture2D model;
+	Rectangle rec;
+	int facingLeft;
+	Image imageAttack;
+	Image imageRun;
+	Image imageIdle;
+
 
 	string image; //image de personnage debout
 
@@ -23,8 +31,6 @@ protected:
 	bool attack;
 	bool run;
 	bool idle; // etre immobile
-	int facingLeft = 1;
-
 
 public:
 	//Constructeurs
@@ -45,9 +51,6 @@ public:
 	void setPosX(int x);
 	void setPosY(int y);
 
-	int getFacingLeft() const;
-	void setFacingLeft(int fc);
-
 	bool getrun() const;
 	bool getattack() const;
 	bool getidle() const;
@@ -55,6 +58,27 @@ public:
 	void setrun(bool b);
 	void setattack(bool b);
 	void setidle(bool b);
+
+	Texture2D getModel() const;
+	void setModel(Texture2D m);
+
+	Rectangle getRect() const;
+	void setRect(Rectangle r);
+
+	void setSide(int s);
+	int getSide() const;
+
+	void setImageAttack(Image ia);
+	void setImageRun(Image ir);
+	void setImageIdle(Image ii);
+
+	Image getImageAttack();
+	Image getImageRun();
+	Image getImageIdle();
+
+	Texture2D getTexture2DAttack();
+	Texture2D getTexture2DRun();
+	Texture2D getTexture2DIdle();
 
 	//Autres methodes
 	virtual void attaque() { cout << "J'ATTAQUE"; };

@@ -61,16 +61,6 @@ void Personnage::setPosY(int y)
 	position_y = y;
 }
 
-int Personnage::getFacingLeft() const
-{
-	return facingLeft;
-}
-
-void Personnage::setFacingLeft(int fc)
-{
-	facingLeft = fc;
-}
-
 bool Personnage::getrun() const
 {
 	return run;
@@ -99,6 +89,81 @@ void Personnage::setattack(bool b)
 void Personnage::setidle(bool b)
 {
 	idle = b;
+}
+
+Texture2D Personnage::getModel() const
+{
+	return model;
+}
+
+void Personnage::setModel(Texture2D m)
+{
+	model = m;
+}
+
+void Personnage::setRect(Rectangle r)
+{
+	rec = r;
+}
+Rectangle Personnage::getRect() const
+{
+	return rec;
+}
+
+int Personnage::getSide() const
+{
+	return facingLeft;
+}
+
+void Personnage::setImageAttack(Image ia)
+{
+	imageAttack = ia;
+}
+
+void Personnage::setImageRun(Image ir)
+{
+	imageRun = ir;
+}
+
+void Personnage::setImageIdle(Image ii)
+{
+	imageIdle = ii;
+}
+
+Image Personnage::getImageAttack()
+{
+	return imageAttack;
+}
+
+Image Personnage::getImageRun()
+{
+	return imageRun;
+}
+
+Image Personnage::getImageIdle()
+{
+	return imageIdle;
+}
+
+
+Texture2D Personnage::getTexture2DAttack()
+{
+	return LoadTextureFromImage(this->getImageAttack());
+}
+
+Texture2D Personnage::getTexture2DRun()
+{
+	return LoadTextureFromImage(this->getImageRun());
+}
+
+Texture2D Personnage::getTexture2DIdle()
+{
+	return LoadTextureFromImage(this->getImageIdle());
+}
+
+void Personnage::setSide(int r)
+{
+	facingLeft = r;
 }
 
 std::ostream& operator<<(std::ostream& out, const Personnage& p)

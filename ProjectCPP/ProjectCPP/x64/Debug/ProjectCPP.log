@@ -3,11 +3,12 @@ C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\P
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Piece.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(7,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(4,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\main.cpp(68,26): warning C4838: la conversion de 'int' en 'float' requiert une conversion restrictive
-C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\main.cpp(68,26): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
-C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\main.cpp(68,38): warning C4838: la conversion de 'int' en 'float' requiert une conversion restrictive
-C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\main.cpp(68,38): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\main.cpp(85,26): warning C4838: la conversion de 'int' en 'float' requiert une conversion restrictive
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\main.cpp(85,26): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\main.cpp(85,38): warning C4838: la conversion de 'int' en 'float' requiert une conversion restrictive
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\main.cpp(85,38): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
   ProjectCPP.vcxproj -> C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\x64\Debug\ProjectCPP.exe

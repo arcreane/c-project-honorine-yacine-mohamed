@@ -27,7 +27,6 @@ void Hero::setScore(int s)
 	score = s;
 }
 
-
 void Hero::setStrength(int s)
 {
 	strength = s;

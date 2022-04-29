@@ -4,6 +4,7 @@
 #include<iostream>
 #include "Piece.h";
 #include <vector>
+#include "raylib.h";
 
 class Hero : public Personnage {
 private:
@@ -18,15 +19,16 @@ public:
 		, speed{ speed }
 		, score{ score }
 		, strength{ strength }
-		, coinsList{ NULL } 
+		, coinsList{ NULL }
 	{
-
+		setImageRun(LoadImage("resources/hero_run.png"));
+		setImageAttack(LoadImage("resources/hero_attack.png"));
+		setImageIdle(LoadImage("resources/hero_idle.png"));
 	};
 	//getteur et setteurs
 	int getSpeed() const;
 	int getScore() const;
 	int getStrength() const;
-
 
 	void setSpeed(int s);
 	void setScore(int s);
@@ -38,7 +40,6 @@ public:
 
 	int getnbCoins() const;
 
-
 	//methodes
 	void getItem(Item i);
 
@@ -48,15 +49,14 @@ public:
 		this->setrun(true);
 		this->setidle(false);
 		this->setattack(false);
-		this->setFacingLeft(-1);
-		facingLeft = -1;
+		this->setSide(-1);
 	}
 	void runright() override {
 		cout << "JE SUIS UN HERO ET JE MARCHE VERS LA DROITE " << std::endl;
 		this->setrun(true);
 		this->setidle(false);
 		this->setattack(false);
-		this->setFacingLeft(1);
+		this->setSide(1);
 	};
 
 	void notmove() override {
