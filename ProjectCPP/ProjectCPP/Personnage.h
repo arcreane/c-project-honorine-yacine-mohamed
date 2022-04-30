@@ -18,21 +18,21 @@ private:
 	int position_x;  //position
 	int position_y;
 	Texture2D model;
+	Texture2D attackModel;
 	Rectangle rec;
 	int facingLeft;
 	Image imageAttack;
 	Image imageRun;
 	Image imageIdle;
 	Vector2 pos;
-
-
-
+	Image imageDie;
 	string image; //image de personnage debout
 
 protected:
 	bool attack;
 	bool run;
 	bool idle; // etre immobile
+	bool die;
 
 public:
 	//Constructeurs
@@ -56,13 +56,18 @@ public:
 	bool getrun() const;
 	bool getattack() const;
 	bool getidle() const;
+	bool getdie() const;
 
 	void setrun(bool b);
 	void setattack(bool b);
 	void setidle(bool b);
+	void setdie(bool b);
 
 	Texture2D getModel() const;
 	void setModel(Texture2D m);
+
+	Texture2D getAttackModel() const;
+	void setAttackModel(Texture2D m);
 
 	Rectangle getRect() const;
 	void setRect(Rectangle r);
@@ -73,14 +78,20 @@ public:
 	void setImageAttack(Image ia);
 	void setImageRun(Image ir);
 	void setImageIdle(Image ii);
+	void setImageHurt(Image ia);
+	void setImageDie(Image ir);
 
 	Image getImageAttack();
 	Image getImageRun();
 	Image getImageIdle();
+	Image getImageHurt();
+	Image getImageDie();
 
 	Texture2D getTexture2DAttack();
 	Texture2D getTexture2DRun();
 	Texture2D getTexture2DIdle();
+	Texture2D getTexture2DHurt();
+	Texture2D getTexture2DDie();
 
 	void setPos(Vector2 v);
 	Vector2 getPos() const;
@@ -88,7 +99,7 @@ public:
 
 	//Autres methodes
 	virtual void attaque() { cout << "J'ATTAQUE"; };
-	virtual void attaque(Personnage p) { cout << "J'attaque" << p; };
+	virtual void attaque(Personnage &p) { cout << "J'attaque" << p; };
 
 
 	//fonction virtuelle pure

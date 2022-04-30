@@ -1,8 +1,6 @@
-﻿  Sorciere.cpp
-C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Sorciere.cpp(1,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Sorciere.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+﻿  Antagoniste.cpp
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.cpp(1,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(4,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
@@ -11,6 +9,62 @@ C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\P
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(8,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Potion.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(9,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(7,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+  Hero.cpp
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.cpp(1,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Piece.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(7,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(8,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Potion.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(9,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(7,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.cpp(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.cpp(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.cpp(41,24): warning C4267: 'return' : conversion de 'size_t' en 'int', perte possible de données
+  Monstre.cpp
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Monstre.cpp(1,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Monstre.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Piece.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(7,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(8,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Potion.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(9,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(7,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+  Sorciere.cpp
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Sorciere.cpp(1,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Sorciere.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Piece.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(7,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(8,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Potion.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(9,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(7,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
 C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Sorciere.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+  main.cpp
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Piece.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(7,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(8,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Potion.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Hero.h(9,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Antagoniste.h(7,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Sorciere.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Sorciere.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\ProjectCPP\Monstre.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+  Génération de code en cours...
   ProjectCPP.vcxproj -> C:\Users\CYTech Student\ProjetHYM\c-project-honorine-yacine-mohamed\ProjectCPP\x64\Debug\ProjectCPP.exe

@@ -76,6 +76,16 @@ bool Personnage::getidle() const
 	return idle;
 }
 
+bool Personnage::getdie() const
+{
+	return die;
+}
+
+void Personnage::setdie(bool b)
+{
+	die = b;
+}
+
 void Personnage::setrun(bool b)
 {
 	run = b;
@@ -99,6 +109,16 @@ Texture2D Personnage::getModel() const
 void Personnage::setModel(Texture2D m)
 {
 	model = m;
+}
+
+Texture2D Personnage::getAttackModel() const
+{
+	return attackModel;
+}
+
+void Personnage::setAttackModel(Texture2D m)
+{
+	attackModel = m;
 }
 
 void Personnage::setRect(Rectangle r)
@@ -175,6 +195,21 @@ void Personnage::setPos(Vector2 p)
 {
 	pos = p;
 }
+void Personnage::setImageDie(Image ii)
+{
+	imageDie = ii;
+}
+
+Image Personnage::getImageDie()
+{
+	return imageDie;
+}
+
+Texture2D Personnage::getTexture2DDie()
+{
+	return LoadTextureFromImage(this->getImageDie());
+}
+
 std::ostream& operator<<(std::ostream& out, const Personnage& p)
 {
 	out << "Mon nom est  : " << p.nom << "Ma vie est de : " << p.vie << std::endl;

@@ -4,7 +4,13 @@
 
 class Sorciere : public Antagoniste {
 public:
-	void voler();
+	Sorciere(string nom, int vie, int recompense)
+		:Antagoniste(nom, vie, recompense) {
+		setImageRun(LoadImage("resources/B_witch_run.png"));
+		setImageAttack(LoadImage("resources/B_witch_attack.png"));
+	};
+
+	void voler(Hero& h); //voler des pieces.
 
 	void runleft() override {
 		cout << "JE SUIS UNE SORCIERE ET JE MARCHE VERS LA GAUCHE " << std::endl;

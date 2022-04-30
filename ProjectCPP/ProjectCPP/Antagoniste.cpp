@@ -1,5 +1,6 @@
 #include "Antagoniste.h";
 #include "Hero.h"
+class Hero;
 
 int Antagoniste::getRecompense() const
 {
@@ -19,6 +20,12 @@ int Antagoniste::getDamage() const
 void Antagoniste::setDamage(int r)
 {
 	damage = r;
+}
+
+void Antagoniste::giveRecompense(Hero h){
+	cout << "HELLEOO" << std::endl;
+	//h.setScore(h.getScore() + this->getRecompense());
+
 }
 
 bool Antagoniste::getActive() const {

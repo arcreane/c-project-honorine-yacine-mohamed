@@ -1,7 +1,9 @@
 #pragma once
 
 #include "Personnage.h";
-#include "Hero.h";
+#include "Hero.h"
+class Hero;
+
 #include "raylib.h";
 
 class Antagoniste : public Personnage {
@@ -31,6 +33,8 @@ public:
 	void setDamageRect(Rectangle r);
 	void setDamage(int s);
 
+	void giveRecompense(Hero h);
+
 	void runleft() override {
 		cout << "JE SUIS UN ME ET JE MARCHE VERS LA GAUCHE" << std::endl;
 	}
@@ -42,8 +46,11 @@ public:
 		cout << "JE SUIS UN ME ET J'ATTAQUE" << std::endl;
 	}
 
-	void attaque(Personnage h) override {  //quand un antagoniste attaque un hero on lui enlève de la vie.
+	void attaque(Personnage &h) override {  //quand un antagoniste attaque un hero on lui enlève de la vie.
+		cout << "je fais des degats de " << this->getDamage() << std::endl;
+		cout << "Le hero a une vie de : " << h.getVie() << std::endl;
 		h.setVie(h.getVie() - this->getDamage());
+		cout << "Le hero a maintenant une vie de : " << h.getVie() << std::endl;
 	}
 
 };

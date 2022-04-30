@@ -68,7 +68,7 @@ public:
 		this->setattack(true);
 	}
 
-	void attaque(Personnage h) override {   //quand un héro attaque un monstre il meurt sur le coup => sa vie passe à 0
+	void attaque(Personnage &h) override {   //quand un héro attaque un monstre il meurt sur le coup => sa vie passe à 0
 		cout << "JE SUIS UN HERO ET J'ATTAQUE LE MONSTRE :" << h.getNom() << std::endl;
 		h.setVie(0);
 	}

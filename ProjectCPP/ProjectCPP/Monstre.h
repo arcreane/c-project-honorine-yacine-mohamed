@@ -4,8 +4,14 @@
 class Monstre : public Antagoniste {
 public:
 	//methodes
+	Monstre(string nom, int vie, int recompense)
+		:Antagoniste(nom, vie, recompense) {
+		setImageRun(LoadImage("resources/Monster_walk.png"));
+		setImageAttack(LoadImage("resources/Monster_attack.png"));
+	};
+
 	void jump();
-	void oneshot(Hero h);
+	void oneshot(Hero& h);
 
 	void runleft() override {
 		cout << "JE SUIS UN Monstre ET JE MARCHE VERS LA GAUCHE " << std::endl;

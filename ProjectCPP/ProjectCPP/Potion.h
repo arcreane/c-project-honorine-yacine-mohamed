@@ -5,11 +5,11 @@ class Potion : public Item {
 private:
 	int nombre;
 public:
-	Potion(string nom, int nb, string type)
+	Potion(string nom, int nb)
 		:Item(nom)
 		, nombre{ nb }{
+		setImage(LoadImage("resources/potion1.png"));
 	};
-	//getteur et setteurs
 	int getNombre() const;
 	void setNombre(int n);
 };
