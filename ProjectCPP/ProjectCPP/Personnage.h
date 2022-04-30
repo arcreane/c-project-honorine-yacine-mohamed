@@ -23,6 +23,8 @@ private:
 	Image imageAttack;
 	Image imageRun;
 	Image imageIdle;
+	Vector2 pos;
+
 
 
 	string image; //image de personnage debout
@@ -80,8 +82,13 @@ public:
 	Texture2D getTexture2DRun();
 	Texture2D getTexture2DIdle();
 
+	void setPos(Vector2 v);
+	Vector2 getPos() const;
+
+
 	//Autres methodes
 	virtual void attaque() { cout << "J'ATTAQUE"; };
+	virtual void attaque(Personnage p) { cout << "J'attaque" << p; };
 
 
 	//fonction virtuelle pure
@@ -93,6 +100,11 @@ public:
 	// An overloaded operator<<, allowing us to print a pair via cout<<
 
 	friend std::ostream& operator<<(std::ostream& out, const Personnage& p);
+
+	template<typename Base, typename T>
+	inline bool instanceof(const T*) {
+		return std::is_base_of<Base, T>::value;
+	}
 };
 
 

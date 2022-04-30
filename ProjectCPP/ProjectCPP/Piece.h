@@ -2,5 +2,12 @@
 #include "Item.h";
 
 class Piece : public Item {
-	// image ?
+
+public:
+	Piece()
+		:Item()
+	{
+		setImage(LoadImage("resources/coin1.png"));
+		setActive(false);
+	};
 };

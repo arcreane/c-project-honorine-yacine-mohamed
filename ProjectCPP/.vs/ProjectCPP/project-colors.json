@@ -10,7 +10,12 @@
       "ProjectGuid": "7fd3cf43-e964-42f6-b8d2-f96a3aa766a4",
       "DisplayName": "ProjectCPP",
       "ColorIndex": 0
+    },
+    "a7a2a36c-3c53-4ccb-b52e-425623e2dda5": {
+      "ProjectGuid": "a7a2a36c-3c53-4ccb-b52e-425623e2dda5",
+      "DisplayName": "Fichiers divers",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }

@@ -5,6 +5,7 @@ class Monstre : public Antagoniste {
 public:
 	//methodes
 	void jump();
+	void oneshot(Hero h);
 
 	void runleft() override {
 		cout << "JE SUIS UN Monstre ET JE MARCHE VERS LA GAUCHE " << std::endl;

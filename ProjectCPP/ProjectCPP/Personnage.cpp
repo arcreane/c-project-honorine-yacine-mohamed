@@ -11,8 +11,8 @@ Personnage::Personnage(string nom, int vie)
 	, attack{ false }
 	, run{ false }
 	, idle{ true }
-	, position_x {0}  //position
-	, position_y {0}
+	, position_x{ 0 }  //position
+	, position_y{ 0 }
 {
 }
 
@@ -166,6 +166,15 @@ void Personnage::setSide(int r)
 	facingLeft = r;
 }
 
+Vector2 Personnage::getPos() const
+{
+	return pos;
+}
+
+void Personnage::setPos(Vector2 p)
+{
+	pos = p;
+}
 std::ostream& operator<<(std::ostream& out, const Personnage& p)
 {
 	out << "Mon nom est  : " << p.nom << "Ma vie est de : " << p.vie << std::endl;

@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include <iostream>
+#include <fstream>
 #include "Hero.h"
 #include "Antagoniste.h"
 #include "Piece.h"
@@ -10,8 +11,14 @@ using namespace std;
 
 void onKeyDown(Texture2D* myHeroRun, Texture2D* myHeroAttack, Vector2* position, Rectangle* frameRec, Rectangle* frameRecAttack);
 
-Hero player = Hero("Name", 100, 0, 0, 0);  // run=false, attack = false et idle= true 
+Hero player = Hero("Name", 100, 0);  // run=false, attack = false et idle= true 
 
+Piece piece = Piece();
+
+template<typename Base, typename T>
+inline bool instanceof(const T*) {
+    return std::is_base_of<Base, T>::value;
+}
 
 Antagoniste tabantagoniste[NOMBRE_ANTAGONIST] = {
     Antagoniste("ANTAGONISTE 1", 1, 1),
@@ -30,13 +37,20 @@ int playerPosX;
 int playerPosY;
 int enemyLeft = 1;
 int manFrame = 0;
+int coinFrame = 0;
+int highScore = 0;
 int enemySpawn[][2] = { {-100, 0},{screenWidth - 50,screenWidth + 50} };
+bool showScore = false;
 
 std::vector< Texture2D > listModelantagonistes;
 
 int main(void)
 {
 
+    std::ofstream WriteFile;
+    WriteFile.open("best-score.txt", std::ios_base::app);
+    ifstream ReadFile("best-score.txt");
+    string score;
     // Au lancement je lui donne 10 pieces au joueur
     player.initCoinsList();
 
@@ -56,25 +70,21 @@ int main(void)
     Image man_run = LoadImage("resources/Man_walk.png");
     Image woman_run = LoadImage("resources/Woman_walk.png");
 
-    // PIECE DANS L'ENVIRONNEMENT
-    Image coin_environnement = LoadImage("resources/coin1.png");
-
     Texture2D texture = LoadTextureFromImage(image);
     Texture2D button = LoadTextureFromImage(btn);
 
 
-    Texture2D myHeroRun = player.getTexture2DRun();  
+    Texture2D myHeroRun = player.getTexture2DRun();
     Texture2D myHeroAttack = player.getTexture2DAttack();
     Texture2D myHeroIdle = player.getTexture2DIdle();
 
     Texture2D healthIcon = LoadTextureFromImage(health);
-
     Texture2D coinIcon = LoadTextureFromImage(coin);
 
     Texture2D manRun = LoadTextureFromImage(man_run);
     Texture2D womanRun = LoadTextureFromImage(woman_run);
 
-    Texture2D coinEnvironnement = LoadTextureFromImage(coin_environnement);
+    Texture2D coinEnvironnement = piece.getModel();
 
     listModelantagonistes.push_back(manRun);
     listModelantagonistes.push_back(womanRun);
@@ -105,20 +115,21 @@ int main(void)
     UnloadImage(coin);
     UnloadImage(man_run);
     UnloadImage(woman_run);
-    UnloadImage(coin_environnement);
 
     SetTargetFPS(60);
 
     for (int i = 0; i < NOMBRE_ANTAGONIST; i++) {
         tabantagoniste[i].setActive(true);
         tabantagoniste[i].setRect({ 0.0f, 0.0f, (float)manRun.width / 6, (float)manRun.height });
-        tabantagoniste[i].setPos({(float)GetRandomValue(enemySpawn[i % 2][0], enemySpawn[i % 2][1]), position.y + 32 });
+        tabantagoniste[i].setPos({ (float)GetRandomValue(enemySpawn[i % 2][0], enemySpawn[i % 2][1]), position.y + 32 });
         tabantagoniste[i].setSide(1);
         tabantagoniste[i].setModel(listModelantagonistes[rand() % listModelantagonistes.size()]);
         tabantagoniste[i].setDamage(5);
         tabantagoniste[i].setRecompense(1);
     }
 
+    piece.setPos({ 500,670 }); // exemple de piece à changer après la création des monstres
+    piece.setActive(true);
     while (!WindowShouldClose()) {
         framesCounter++;
         mousePoint = GetMousePosition();
@@ -152,7 +163,7 @@ int main(void)
                     }
                     if (CheckCollisionPointRec(pos, player.getRect())) {
                         if (player.getattack()) {
-                            tabantagoniste[i].setPos({(float)GetRandomValue(enemySpawn[i % 2][0], enemySpawn[i % 2][1]), position.y + 32 });
+                            tabantagoniste[i].setPos({ (float)GetRandomValue(enemySpawn[i % 2][0], enemySpawn[i % 2][1]), position.y + 32 });
                             tabantagoniste[i].setModel(listModelantagonistes[rand() % listModelantagonistes.size()]);
                             player.setScore(tabantagoniste[i].getRecompense() + player.getScore());
                         }
@@ -165,6 +176,11 @@ int main(void)
             }
         }
 
+        if (piece.getActive() && CheckCollisionPointRec({ piece.getPos().x - 20,piece.getPos().y }, player.getRect())) {
+            piece.setActive(false);
+            player.getCoin(piece);
+            //player.getItem(piece);
+        }
 
         if (CheckCollisionPointRec(mousePoint, btnBounds)) {
             if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
@@ -194,8 +210,17 @@ int main(void)
         }
         else {
             if (player.getVie() <= 0) {
-                DrawText(TextFormat("SCORE: %i", player.getScore()), 500, 320, 50, MAROON);   //ecrire dans le fichier
-                DrawText(TextFormat(" BEST-SCORE: %i", player.getScore()), 420, 400, 45, BLACK);  //recuperer depuis le fichier
+                if (showScore == false) {    //ecriture du best-score si meilleure que la fois d'avant
+                    if (player.getScore() > 0) 
+                        WriteFile << player.getScore() << endl;
+                    while (getline(ReadFile, score)) { //recupere le meilleur score 
+                        if (stoi(score) > highScore)
+                            highScore = stoi(score);
+                    }
+                    showScore = true;
+                }
+                DrawText(TextFormat("SCORE: %i", player.getScore()), 500, 320, 50, MAROON);   
+                DrawText(TextFormat("BEST-SCORE: %i", highScore), 420, 400, 45, BLACK);  
                 DrawText("GAME OVER", 470, 230, 50, BLACK);
                 DrawText("APPUYER SUR ENTRER POUR REJOUER", 280, 500, 40, LIGHTGRAY);
             }
@@ -217,6 +242,15 @@ int main(void)
                 DrawTexture(coinIcon, 40, 100, WHITE);
                 DrawText(std::to_string(player.getScore()).c_str(), 1120, 50, 30, WHITE);
                 DrawText(std::to_string(player.getnbCoins()).c_str(), 85, 105, 35, YELLOW);
+                if (piece.getActive()) {
+                    DrawTextureRec(coinEnvironnement, { coinFrame * (float)coinEnvironnement.width / 4, 0.0f, (float)coinEnvironnement.width / 4, (float)coinEnvironnement.height }, piece.getPos(), WHITE);
+                    if (framesCounter % 10 == 0) {
+                        coinFrame++;
+                        if (coinFrame >= 4) {
+                            coinFrame = 0;
+                        }
+                    }
+                }
                 if (player.getrun() == true)
                     DrawTextureRec(myHeroRun, frameRec, position, WHITE);
                 if (player.getidle() == true)
@@ -237,6 +271,9 @@ int main(void)
     UnloadTexture(coinIcon);
 
     CloseWindow();
+
+    WriteFile.close();
+    ReadFile.close();
 
     return 0;
 }
