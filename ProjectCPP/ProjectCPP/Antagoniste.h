@@ -33,7 +33,7 @@ public:
 	void setDamageRect(Rectangle r);
 	void setDamage(int s);
 
-	void giveRecompense(Hero h);
+	void giveRecompense(Hero &h);
 
 	void runleft() override {
 		cout << "JE SUIS UN ME ET JE MARCHE VERS LA GAUCHE" << std::endl;

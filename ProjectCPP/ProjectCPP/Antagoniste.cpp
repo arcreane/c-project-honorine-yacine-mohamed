@@ -22,9 +22,9 @@ void Antagoniste::setDamage(int r)
 	damage = r;
 }
 
-void Antagoniste::giveRecompense(Hero h){
+void Antagoniste::giveRecompense(Hero &h){
 	cout << "HELLEOO" << std::endl;
-	//h.setScore(h.getScore() + this->getRecompense());
+	h.setScore(h.getScore() + this->getRecompense());
 
 }
 
